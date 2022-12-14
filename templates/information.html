@@ -1,0 +1,85 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Rides Information</h1>
+      <nav>
+        <ol class="breadcrumb">
+          {% comment %} <li class="breadcrumb-item"><a href="index.html"></a></li> {% endcomment %}
+          <li class="breadcrumb-item active">Riders Data</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      {% for allride in allrides %}
+      {% comment %} <div class="row"> {% endcomment %}
+        {% comment %} <div class="col-lg-6"> {% endcomment %}
+
+          <div class="card"> 
+            {% comment %} <a class="btn btn-primary" href="{% url 'bookride' allride.id %}"> {% endcomment %}
+              {% comment %} <b> BOOK RIDE </b> {% endcomment %}
+            {% comment %} </a {% endcomment %}
+            <div class="card-body">
+              <h5 class="card-body"></h5>
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">phone number</th>
+                    <th scope="col">Start</th>
+                    <th scope="col">Drop</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Arrival time</th>
+                    <th scope="col">Drop time</th>
+                  </tr>
+                  <tr>
+                    <td>{{allride.name}}</td>
+                    <td>{{allride.phone_number}}</td>
+                    <td>{{allride.pickup_point}}</td>
+                    <td> {{allride.pickout_point}}</td>
+                    <td> {{allride.date}}</th>
+                    <td>{{allride.arrival_time}}</td>
+                    <td>{{allride.drop_time}}</td>
+                  </tr>
+                </thead>
+              </table>
+              <div class="text-center">
+                <a class="btn btn-primary" href="{% url 'fire' allride.id allride.ride_id %}">
+                 <b> REMOVE PARTICIPANT </b>
+                </a>
+              </div>
+              </div>
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+
+  </main><!-- End #main -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.min.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.min.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  </body>
+  </html>
+{% endblock %}

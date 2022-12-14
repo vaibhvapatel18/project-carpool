@@ -1,0 +1,66 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+{% for single_blog in all_blogs %}  
+{% comment %} <section class="section">
+  <div class="row">
+    <div class="col-lg-6">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{single_blog.title}} Posted on : {{single_blog.date}}</h5>
+
+          <!-- Slides only carousel -->
+          <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{{single_blog.pic.url}}" class="d-block w-100" alt="...">
+                {{single_blog.user.name}}
+                {{single_blog.content}}</
+              </div>
+            </div>
+          </div><!-- End Slides only carousel-->
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</section>
+</body>
+</html>
+{% endblock %} {% endcomment %}
+<br>
+<br>
+<br>
+
+{% comment %} <div class="card"> {% endcomment %}
+  {% comment %} <div class="card-body"> {% endcomment %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Blog Title : {{single_blog.title}}</h5>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-3">
+              <img src="{{single_blog.pic.url}}"  class="d-block w-75" alt="...">
+                        </div>
+                <div class="col-md-8">
+                  {% comment %} <div class="card"> {% endcomment %}
+                    {% comment %} <div class="card-body"> {% endcomment %}
+                      <h5 class="card-title">{{single_blog.user.name}} Posted on : {{single_blog.date}}</h5>
+                  <div class="card-body">
+                   <p class="card-text">{{single_blog.content}}</p>
+                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+{% endfor %}
+</body>
+</html>
+{% endblock %} 
