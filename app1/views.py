@@ -14,7 +14,7 @@ from rest_framework.response import Response
 def index(request):
     try:
         request.session['email']
-        user = Data.objects.get(email = request.session['email'])
+        user = Data.objects.get(email = request.session['email']) 
         return render(request, 'index.html', {'user_object' : user})
     except:
         return render(request, 'page_login.html')
